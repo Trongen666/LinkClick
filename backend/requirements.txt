@@ -1,0 +1,22 @@
+# fastapi
+# uvicorn
+# pymongo
+# python-dotenv
+# pydantic
+# passlib[bcrypt]
+# python-jose
+
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+python-jose==3.3.0
+passlib==1.7.4
+pymongo==4.5.0
+pydantic==2.4.2
+python-dotenv==1.0.0
+framer-motion
+bcrypt==4.0.1
+Pillow==10.1.0
+pyotp==2.9.0
+cmake
+
