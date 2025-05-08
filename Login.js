@@ -12,6 +12,17 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Simple validation
+    if (phoneNumber.length !== 10) {
+      alert(t('invalidPhoneNumber'));
+      return;
+    }
+    if (otp.length !== 6) {
+      alert(t('invalidOtp'));
+      return;
+    }
+
     navigate('/home');
   };
 
@@ -50,17 +61,16 @@ function Login() {
       </form>
 
       <div className="language-select">
-        <span onClick={() => handleLanguageChange('te')}>తెలుగు</span>
-        <span onClick={() => handleLanguageChange('hi')}>हिन्दी</span>
-        <span onClick={() => handleLanguageChange('en')}>English</span>
+        <span className="language-option" onClick={() => handleLanguageChange('te')}>తెలుగు</span>
+        <span className="language-option" onClick={() => handleLanguageChange('hi')}>हिन्दी</span>
+        <span className="language-option" onClick={() => handleLanguageChange('en')}>English</span>
       </div>
 
       <p className="no-account">
-        {t('noAccount')} <Link to="/signup">signup</Link>
+        {t('noAccount')} <Link to="/signup">{t('signup')}</Link>
       </p>
     </div>
   );
 }
 
 export default Login;
-

@@ -1,74 +1,118 @@
+/* Full-window login page styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9; /* Light background for better readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container to center content */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  height: 100vh;
+  text-align: center;
+  background-color: #ffffff; /* White background for contrast */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Limit max width for larger screens */
 }
 
+/* Title styles */
+.title {
+  font-size: 2.5rem; /* Large title */
+  color: #ff6f61; /* Soft pastel pink */
+  margin: 0;
+}
+
+/* Logo styles with Holi splash effect */
 .logo {
-  width: 150px;
-  height: 150px;
-  background-color: #5274f2;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px; /* Reduced size to fit inside circle */
-  font-weight: bold;
-  color: white;
-  margin-bottom: 20px;
+  display: inline-block;
+  font-size: 3rem; /* Large logo size */
+  color: #ff6f61; /* Logo color */
+  animation: splash 2s infinite alternate; /* Holi splash effect */
 }
 
-.instruction {
-  margin-bottom: 20px;
-  font-size: 18px;
-  color: #333;
+/* Title animation */
+@keyframes splash {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+/* Subtitle styles */
+.subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0; /* Soft gray */
+  margin: 0.5rem 0 2rem; /* Spacing below */
 }
 
-input {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+/* Input styles */
+input[type="text"],
+input[type="tel"],
+input[type="number"] {
+  padding: 1rem; /* Large padding for accessibility */
+  font-size: 1.2rem; /* Large, readable font */
+  border: 2px solid #e0e0e0; /* Light border */
+  border-radius: 20px; /* Rounded corners */
+  width: 100%; /* Full width */
+  margin: 0.5rem 0; /* Spacing between inputs */
 }
 
+/* Button styles */
 button {
-  padding: 10px;
-  background-color: #5274f2;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+  padding: 1rem; /* Large padding */
+  font-size: 1.5rem; /* Large font size */
+  background-color: #ff7f50; /* Pastel peach */
+  color: white; /* White text for contrast */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin: 1.5rem 0; /* Spacing above and below */
+  transition: background-color 0.3s; /* Smooth hover effect */
 }
 
+/* Button hover effect */
 button:hover {
-  background-color: #3d5ee3;
+  background-color: #ff6f61; /* Darker peach on hover */
 }
 
-.language-select {
-  margin-top: 20px;
+/* Language options styling */
+.language-options {
   display: flex;
-  gap: 20px;
-  font-size: 16px;
-  cursor: pointer;
+  justify-content: space-around; /* Even spacing */
+  margin-bottom: 1rem; /* Space below language options */
 }
 
-.language-select span {
-  cursor: pointer;
+/* Language option styles */
+.language-option {
+  color: #ff6f61; /* Soft pink color */
+  font-size: 1.2rem; /* Large, readable font */
+  cursor: pointer; /* Pointer cursor */
 }
 
-.no-account {
-  margin-top: 20px;
-  font-size: 14px;
+/* Footer styles */
+.footer {
+  margin-top: 2rem; /* Space above footer */
+  color: #777; /* Soft, friendly text color */
+  font-size: 1rem; /* Standard font size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem; /* Smaller title on small screens */
+  }
+  .subtitle {
+    font-size: 1rem; /* Smaller subtitle */
+  }
+  button {
+    font-size: 1.2rem; /* Smaller button text */
+  }
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"] {
+    font-size: 1rem; /* Smaller input text */
+  }
 }
