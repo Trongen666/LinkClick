@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     JWT_SECRET_KEY: str = os.getenv("JWT_SECRET_KEY", secrets.token_urlsafe(32))
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60  # 1 hour
-
+    FACE_MATCH_THRESHOLD: str = "0.6"
     # CORS
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
 
@@ -30,8 +30,8 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     # MongoDB
-    MONGODB_URI: str = os.getenv("MONGODB_URI", "mongodb://localhost:27017")
-    DATABASE_NAME: str = os.getenv("DATABASE_NAME", "auth_system")
+    MONGODB_URI: str = os.getenv("MONGODB_URI", "")
+    DATABASE_NAME: str = os.getenv("DATABASE_NAME", "")
 
     # OTP Settings
     OTP_LENGTH: int = 6

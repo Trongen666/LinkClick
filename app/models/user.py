@@ -82,6 +82,7 @@ from pydantic import BaseModel, Field
 from pydantic.json_schema import JsonSchemaValue
 from bson import ObjectId
 from pydantic import GetJsonSchemaHandler
+from bson.binary import Binary
 
 class PyObjectId(ObjectId):
     @classmethod
@@ -107,17 +108,33 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     pass
 
+# class UserInDB(UserBase):
+#     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+#     face_embedding: Optional[List[float]] = None
+#     created_at: datetime = Field(default_factory=datetime.utcnow)
+#     updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+#     model_config = {
+#         "populate_by_name": True,
+#         "arbitrary_types_allowed": True,
+#         "json_encoders": {ObjectId: str},
+#     }
+
+
+
 class UserInDB(UserBase):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     face_embedding: Optional[List[float]] = None
+    face_image: Optional[Binary] = None  # Add this field
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
     model_config = {
         "populate_by_name": True,
         "arbitrary_types_allowed": True,
-        "json_encoders": {ObjectId: str},
+        "json_encoders": {ObjectId: str, Binary: lambda b: b.decode('latin1')},
     }
+
 
 class User(UserBase):
     id: str = Field(...)

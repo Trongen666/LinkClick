@@ -11,7 +11,6 @@ from app.utils.db import init_db
 from app.routers import db_test
 
 
-
 # Create FastAPI application
 app = FastAPI(
     title="Authentication System",
@@ -39,6 +38,9 @@ async def startup_event():
     """
     Initialize database on startup
     """
+    print("\n--- All registered routes ---")
+    for route in app.routes:
+        print(route.path, route.name)
 #    await init_db()
 
 @app.get("/")
