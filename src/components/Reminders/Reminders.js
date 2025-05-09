@@ -1,50 +1,58 @@
-// src/components/Reminders/Reminders.js
 import React, { useState } from 'react';
-import './Reminders.css'; // Ensure this CSS file exists for styling
+import '../../App.css'; // Assuming you have a CSS file for styles
 
-const Reminders = () => {
-  const [notifications, setNotifications] = useState({
-    medicine: true,
-    drinkWater: true,
-    pensionStatus: false,
-    bankVisit: false,
-    billPayments: true,
-    eyeCheckUp: false,
-    bookingConfirmation: true,
-  });
+const ReminderAndNotification = () => {
+  const [reminders, setReminders] = useState([]);
+  const [newReminder, setNewReminder] = useState('');
 
-  const handleToggle = (key) => {
-    setNotifications((prev) => ({ ...prev, [key]: !prev[key] }));
+  const notifications = [
+    "Medicine",
+    "Drink water",
+    "Pension status update",
+    "Bank visit",
+    "Bill payments",
+    "Eye check-up",
+    "Booking confirmation"
+  ];
+
+  const handleAddReminder = () => {
+    if (newReminder.trim()) {
+      setReminders([...reminders, newReminder]);
+      setNewReminder('');
+    }
   };
 
   return (
-    <div className="app">
-      <h1>Reminders & Notifications</h1>
+    <div className="container">
+      <h1 className="title">🧭 Reminders and Notifications</h1>
 
       <div className="section">
-        <h2>Reminders</h2>
+        <h2>🔔 Reminders</h2>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '10px' }}>
+          <input
+            type="text"
+            value={newReminder}
+            onChange={(e) => setNewReminder(e.target.value)}
+            placeholder="Add reminder..."
+          />
+          <button onClick={handleAddReminder}>+</button>
+        </div>
         <ul>
-          <li>Medicine <span className="info-icon">i</span></li>
-          <li>Doctor appointment <span className="info-icon">i</span></li>
-          <li>Bedtime <span className="info-icon">i</span></li>
-          <li>Exercise <span className="info-icon">i</span></li>
-          <li>Medication <span className="info-icon">i</span></li>
-          <li>Meals <span className="info-icon">i</span></li>
-          <li>Drink water <span className="info-icon">i</span></li>
-          <li>Monthly payments <span className="info-icon">i</span></li>
+          {reminders.map((reminder, index) => (
+            <li key={index}>
+              {reminder} 🔔
+            </li>
+          ))}
         </ul>
       </div>
 
       <div className="section">
-        <h2>Notifications</h2>
+        <h2>🔔 Notifications</h2>
         <ul>
-          {Object.entries(notifications).map(([key, value]) => (
-            <li key={key}>
-              {key.replace(/([A-Z])/g, ' $1')} 
-              <label className="switch">
-                <input type="checkbox" checked={value} onChange={() => handleToggle(key)} />
-                <span className="slider round"></span>
-              </label>
+          {notifications.map((notification, index) => (
+            <li key={index}>
+              <input type="checkbox" />
+              {notification}
             </li>
           ))}
         </ul>
@@ -53,4 +61,5 @@ const Reminders = () => {
   );
 };
 
-export default Reminders;
+export default ReminderAndNotification;
+

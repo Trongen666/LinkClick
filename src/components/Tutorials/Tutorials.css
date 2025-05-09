@@ -1,26 +1,158 @@
-.tutorials-container {
+/* styles.css */
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
+}
+
+/* Title */
+h1 {
   text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
-.tutorials-grid {
+/* Language filter */
+select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+/* Tutorial Cards */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.tutorial-card {
-  border: 1px solid #ccc;
+.bg-white {
+  background-color: #fff;
+}
+
+.rounded-lg {
   border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s;
 }
 
-.tutorial-card img {
-  width: 100%;
-  height: auto;
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tutorial-card:hover {
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transform {
+  transition: transform 0.3s ease;
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.hover\:scale-105:hover {
   transform: scale(1.05);
+}
+
+.relative {
+  position: relative;
+}
+
+.pb-2\/3 {
+  padding-bottom: 66.6667%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray-900 {
+  color: #1f2937;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* YouTube Embed */
+.aspect-w-16 {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.aspect-h-9 {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.rounded-lg {
+  border-radius: 8px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
 }
